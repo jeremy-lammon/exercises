@@ -1,5 +1,5 @@
 /**
- * Add your first name and last name.
+ * Jeremy Lammon
  */
 import 'dotenv/config';
 import express from 'express';
