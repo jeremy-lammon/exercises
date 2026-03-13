@@ -1,29 +1,29 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function CreatePage() {
-    const [name, setName] = React.useState("");
-    const [reps, setReps] = React.useState(1);
-    const [weight, setWeight] = React.useState(1);
-    const [unit, setUnit] = React.useState("");
-    const [date, setDate] = React.useState("");
+function EditPage({ exerciseToEdit }) {
+    const [name, setName] = React.useState(exerciseToEdit?.name || "");
+    const [reps, setReps] = React.useState(exerciseToEdit?.reps || 1);
+    const [weight, setWeight] = React.useState(exerciseToEdit?.weight || 1);
+    const [unit, setUnit] = React.useState(exerciseToEdit?.unit || "");
+    const [date, setDate] = React.useState(exerciseToEdit?.date || "");
 
     const navigate = useNavigate();
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const newExercise = { name, reps, weight, unit, date };
-        const response = await fetch('/exercises', {
-            method: 'POST',
+        const editedExercise = { name, reps, weight, unit, date };
+        const response = await fetch(`/exercises/${exerciseToEdit._id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newExercise)
+            body: JSON.stringify(editedExercise)
         });
-        if (response.status === 201) {
-            alert("Successfully added the exercise!");
+        if (response.status === 200) {
+            alert("Successfully edited the exercise!");
         } else {
-            alert(`Failed to create exercise. Status code: ${response.status}`);
+            alert(`Failed to edit exercise. Status code: ${response.status}`);
         }
         navigate('/');
     };
@@ -31,7 +31,7 @@ function CreatePage() {
 
     return (
         <>
-            <h2> Create Exercise </h2>
+            <h2> Edit Exercise </h2>
             <form onSubmit={onSubmit}>
                 <fieldset>
                     <legend> Exercise Details </legend>
@@ -48,11 +48,7 @@ function CreatePage() {
                     </label>
                     <br />
                     <label>Unit:
-                        <select name="unit" value={unit} onChange={(e) => setUnit(e.target.value)}>
-                            <option value="">Select Unit</option>
-                            <option value="lbs">lbs</option>
-                            <option value="kgs">kgs</option>
-                        </select>
+                        <input type="text" name="unit" value={unit} onChange={(e) => setUnit(e.target.value)} />
                     </label>
                     <br />
                     <label>Date:
@@ -66,4 +62,4 @@ function CreatePage() {
     );
 }
 
-export default CreatePage;
+export default EditPage;
