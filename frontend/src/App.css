@@ -27,15 +27,76 @@ body {
   font-weight: 400;
 }
 
+table {
+  width: 100%;
+}
+
+tr th {
+  border: 1px solid rgb(202, 223, 255);
+  padding: 0.5em;
+  color: rgb(202, 223, 255);
+  background-color: rgb(68, 75, 85);
+}
+
+tr td {
+  border: 1px solid rgb(202, 223, 255);
+  padding: 0.5em;
+  color: rgb(202, 223, 255);
+}
+
+input {
+  padding: 0.5em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: rgb(68, 75, 85);
+  color: rgb(202, 223, 255);
+  transition: border-color 0.25s;
+}
+
+input:focus {
+  border-color: #ffffff;
+  outline: none;
+}
+
+select {
+  padding: 0.5em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: rgb(68, 75, 85);
+  color: rgb(202, 223, 255);
+  transition: border-color 0.25s;
+}
+
+select:focus {
+  border-color: #ffffff;
+  outline: none;
+}
+
+form {
+  display: flex;
+
+  margin-top: 1em;
+  margin-bottom: 1em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+label {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 a {
   font-weight: 900;
   font-size: larger;
   text-decoration: inherit;
-  color: rgb(255, 255, 255);
+  color: rgb(202, 223, 255);
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  background-color: #877bc9;
+  background-color: rgb(68, 75, 85);
   margin: 0.5em;
   cursor: pointer;
   transition: border-color 0.25s;

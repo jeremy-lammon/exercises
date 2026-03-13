@@ -48,7 +48,11 @@ function EditPage({ exerciseToEdit }) {
                     </label>
                     <br />
                     <label>Unit:
-                        <input type="text" name="unit" value={unit} onChange={(e) => setUnit(e.target.value)} />
+                        <select name="unit" value={unit} onChange={(e) => setUnit(e.target.value)}>
+                            <option value="">Select Unit</option>
+                            <option value="lbs">lbs</option>
+                            <option value="kgs">kgs</option>
+                        </select>
                     </label>
                     <br />
                     <label>Date:
