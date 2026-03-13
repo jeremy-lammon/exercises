@@ -1,5 +1,5 @@
 import React from "react";
-
+import { MdEdit, MdDelete } from "react-icons/md";
 function ExerciseRow({ exercise, onEdit, onDelete }) {
     return (
         <tr>
@@ -8,8 +8,8 @@ function ExerciseRow({ exercise, onEdit, onDelete }) {
             <td>{exercise.weight}</td>
             <td>{exercise.unit}</td>
             <td>{exercise.date}</td>
-            <td><button onClick={() => onEdit(exercise)}>Edit</button></td>
-            <td><button onClick={() => onDelete(exercise._id)}>Delete</button></td>
+            <td><button onClick={() => onEdit(exercise)}><MdEdit /></button></td>
+            <td><button onClick={() => onDelete(exercise._id)}><MdDelete /></button></td>
         </tr>
     );
 }

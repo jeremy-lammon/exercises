@@ -1,7 +1,8 @@
 import React from 'react';
 import ExerciseRow from './ExerciseRow';
 
-function ExerciseTable({ exercises }) {
+function ExerciseTable({ exercises, onEdit, onDelete }) {
+
     return (
         <table className="exercise-table">
             <thead>
@@ -11,13 +12,13 @@ function ExerciseTable({ exercises }) {
                     <th>Weight</th>
                     <th>Unit</th>
                     <th>Date</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {exercises.map((exercise) => (
-                    <ExerciseRow key={exercise._id} exercise={exercise} />
+                    <ExerciseRow key={exercise._id} exercise={exercise} onEdit={onEdit} onDelete={onDelete} />
                 ))}
             </tbody>
         </table>

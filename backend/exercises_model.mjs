@@ -66,4 +66,9 @@ const updateExercise = async (_id, name, reps, weight, unit, date) => {
     }
 }
 
-export { connect, createExercise, getExercises, getExerciseById, updateExercise };
+const deleteExercise = async (id) => {
+    const result = await Exercise.deleteOne({ _id: id });
+    return result.deletedCount > 0;
+}
+
+export { connect, createExercise, getExercises, getExerciseById, updateExercise, deleteExercise };
